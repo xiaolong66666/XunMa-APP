@@ -39,19 +39,19 @@
             <text class="text">最新订单</text>
           </view>
         </uni-grid-item>
-       <uni-grid-item>
+       <uni-grid-item v-if="checkPermi(['system:order:add'])">
           <view class="grid-item-box">
             <uni-icons type="heart-filled" size="30"></uni-icons>
             <text class="text">发布订单</text>
           </view>
         </uni-grid-item>
-        <uni-grid-item>
+        <uni-grid-item v-if="checkPermi(['system:order:edit:approve'])">
           <view class="grid-item-box">
             <uni-icons type="checkmarkempty" size="30"></uni-icons>
             <text class="text">订单审批</text>
           </view>
         </uni-grid-item>
-       <uni-grid-item>
+       <uni-grid-item v-if="checkRole(['attendant'])">
           <view class="grid-item-box">
             <uni-icons type="locked-filled" size="30"></uni-icons>
             <text class="text">权限申请</text>
@@ -74,7 +74,9 @@
   </view>
 </template>
 
-<script>
+<script>  
+import { checkPermi, checkRole } from "@/utils/permission"; 
+	
   export default {
     data() {
       return {
@@ -93,6 +95,9 @@
       }
     },
     methods: {
+		//鉴权函数
+		checkPermi,
+		checkRole,
       clickBannerItem(item) {
         console.info(item)
       },

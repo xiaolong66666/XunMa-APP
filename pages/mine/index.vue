@@ -28,21 +28,21 @@
 
     <view class="content-section">
       <view class="mine-actions grid col-4 text-center">
-        <view class="action-item" @click="handleJiaoLiuQun">
+        <view class="action-item" @click="handleShowPublic">
           <view class="iconfont icon-friendfill text-pink icon"></view>
-          <text class="text">交流群</text>
+          <text class="text">公众号</text>
         </view>
         <view class="action-item" @click="handleBuilding">
           <view class="iconfont icon-service text-blue icon"></view>
           <text class="text">在线客服</text>
         </view>
-        <view class="action-item" @click="handleBuilding">
+        <view class="action-item" @click="handleFeedback">
           <view class="iconfont icon-community text-mauve icon"></view>
-          <text class="text">反馈社区</text>
+          <text class="text">反馈平台</text>
         </view>
-        <view class="action-item" @click="handleBuilding">
-          <view class="iconfont icon-dianzan text-green icon"></view>
-          <text class="text">点赞我们</text>
+        <view class="action-item" @click="handleShowBusiness">
+          <view class="iconfont icon-help text-green icon"></view>
+          <text class="text">业务范围</text>
         </view>
       </view>
 
@@ -124,12 +124,20 @@
       handleAbout() {
         this.$tab.navigateTo('/pages/mine/about/index')
       },
-      handleJiaoLiuQun() {
-        this.$modal.showToast('正在开发当中')
+      handleShowPublic() {
+        // this.$modal.showToast('正在开发当中')
       },
       handleBuilding() {
-        this.$modal.showToast('模块建设中~')
-      }
+		  window.location.href='https://work.weixin.qq.com/kfid/kfceea9ab97632926d2'
+      },
+	  //处理反馈
+	  handleFeedback() {
+		  
+      },
+	  //显示业务范围
+	  andleShowBusiness(){
+		  
+	  }
     }
   }
 </script>

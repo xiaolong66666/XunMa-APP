@@ -7,10 +7,10 @@
     </view>
     <view class="login-form-content">
 	  <view class="action-btn">
-	    <button @click="handleLogin('guest')" class="login-btn cu-btn block bg-blue lg round">客户登录</button>
+	    <button @click="handleLogin('custom')" class="login-btn cu-btn block bg-blue lg round">客户登录</button>
 	  </view>
 	  <view class="action-btn">
-	    <button @click="handleLogin('custom')" class="login-btn cu-btn block bg-blue lg round">技术人员登录</button>
+	    <button @click="handleLogin('guest')" class="login-btn cu-btn block bg-blue lg round">技术人员登录</button>
 	  </view>
       <view class="action-btn">
         <button @click="handleLogin('admin')" class="login-btn cu-btn block bg-blue lg round">管理员登录</button>

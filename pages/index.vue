@@ -66,7 +66,7 @@
 			  // 查询参数
 			  queryParams: {
 			    pageNum: 1,
-			    pageSize: 999,
+			    pageSize: 5,
 			   },
 			   noticeList:[],
 			   range: [
@@ -113,6 +113,7 @@
 		},
 		
 		getList() {
+			this.queryParams.pageNum=1;
 	        listNotice(this.queryParams).then(response => {
 			  this.noticeList = response.rows;
 			  console.log(response.rows)
@@ -125,12 +126,17 @@
 	    uni.startPullDownRefresh()
 	  },
 	  onPullDownRefresh () {
-		  this.queryParams.pageNum=1;
-		  this.queryParams.pageNum=10;
 		  this.getList()
 	  },
 	  onReachBottom () {
 	    console.log('触底了')
+		//分页加载数据并追加到原有数据列表
+		this.queryParams.pageNum += 1;
+		listNotice(this.queryParams).then(response => {
+			if (this.noticeList.length < response.total){
+				this.noticeList = this.noticeList.concat(response.rows);
+			}
+		});
 	  },
 	  //悬浮窗参数
       trigger(e) {
